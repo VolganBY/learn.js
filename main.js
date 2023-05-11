@@ -1,40 +1,35 @@
-/*const getWeekDay = (date) => {
-    let days = ['вс','пн', 'вт', 'ср', 'чт', 'пт', 'сб' ];
-    return days[date.getDay()];
-}
+const calculator = document.querySelector('.calculator');
+const result = document.querySelector('#result');
+calculator.addEventListener('click', function (event){
+    if (!event.target.classList.contains('calculator-button')) return;
 
-let date= new Date(2023, 0, 1)
-alert(getWeekDay(date))*/
-
-/*let sumTo = (n) => {
-    if ( n===1) {
-        return 1;
-    } else {
-        return n + sumTo(n-1);
+    const value = (event.target.innerText);
+    switch (value) {
+        case 'C':
+            result.innerText = '';
+            break;
+        case '=':
+            result.innerText = eval(result.innerText).toFixed(2);
+            break;
+        default:
+            result.innerText += value;
     }
+    });
 
-};
-
-console.log(sumTo(10));*/
-
-/*let factorial = (n) => {
-    if ( n===1) {
-        return 1;
-    } else {
-        return (n * factorial(n-1));
-    }
-}
-
-console.log(factorial(3));*/
-
-/*console.time('Время выполнения скрипта');
-function factorial(n) {
-    return (n !== 1) ? n * factorial(n - 1) : 1;
-}
-
-console.log(factorial(77))
-console.timeEnd('Время выполнения скрипта')*/
-
-let arr = [3, 1, 3, 5, 7, 0, 12, 11, 23, 30];
-
-console.log(Math.max(...arr));
+//const calculatorButtons = document.querySelectorAll('.calculator-button');
+//const result = document.querySelector('#result');
+/*calculatorButtons.forEach(calc => {
+    calc.addEventListener('click', function (event) {
+        const value = (event.target.innerText);
+        switch (value) {
+            case 'C':
+                result.value = '';
+                break;
+            case '=':
+                result.value = eval(result.value).toFixed(2);
+                break;
+            default:
+                result.value += value;
+        }
+    });
+})*/
