@@ -18,22 +18,18 @@ calculator.addEventListener('click', function (event) {
     }
     });
 
-
-    document.addEventListener('keydown', function (event) {
-        if (!/[\d+\-*/.%]/.test(event.key)) return;
-        event.preventDefault();
-
-        switch (event.key) {
-            case 'Enter':
-                result.innerText = eval(result.innerText).toFixed();
-                break;
-            case 'Escape':
-                result.innerText = '';
-                break;
-            default:
-                result.innerText += event.key;
-        }
-    });
+document.addEventListener('keydown', function (event) {
+    const key = event.key;
+    if (/[0-9]/.test(key)) {
+        result.innerText += key;
+    } else if (/[\+\-\*\/]/.test(key)) {
+        result.innerText += key;
+    } else if (key === 'Enter') {
+        result.innerText = eval(result.innerText).toFixed();
+    } else if (key === 'Escape') {
+        result.innerText = '';
+    }
+});
 
 
 //const calculatorButtons = document.querySelectorAll('.calculator-button');
