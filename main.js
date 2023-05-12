@@ -1,6 +1,6 @@
 const calculator = document.querySelector('.calculator');
 const result = document.querySelector('#result');
-calculator.addEventListener('click', function (event){
+calculator.addEventListener('click', function (event) {
     if (!event.target.classList.contains('calculator-button')) return;
 
     const value = (event.target.innerText);
@@ -9,12 +9,32 @@ calculator.addEventListener('click', function (event){
             result.innerText = '';
             break;
         case '=':
-            result.innerText = eval(result.innerText).toFixed(2);
+            result.innerText = eval(result.innerText).toFixed();
             break;
         default:
-            result.innerText += value;
+            if (/[\d+\-*/.%]/.test(value)) {
+                result.innerText += value;
+            }
     }
     });
+
+
+    document.addEventListener('keydown', function (event) {
+        if (!/[\d+\-*/.%]/.test(event.key)) return;
+        event.preventDefault();
+
+        switch (event.key) {
+            case 'Enter':
+                result.innerText = eval(result.innerText).toFixed();
+                break;
+            case 'Escape':
+                result.innerText = '';
+                break;
+            default:
+                result.innerText += event.key;
+        }
+    });
+
 
 //const calculatorButtons = document.querySelectorAll('.calculator-button');
 //const result = document.querySelector('#result');
