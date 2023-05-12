@@ -31,21 +31,3 @@ document.addEventListener('keydown', function (event) {
     }
 });
 
-
-//const calculatorButtons = document.querySelectorAll('.calculator-button');
-//const result = document.querySelector('#result');
-/*calculatorButtons.forEach(calc => {
-    calc.addEventListener('click', function (event) {
-        const value = (event.target.innerText);
-        switch (value) {
-            case 'C':
-                result.value = '';
-                break;
-            case '=':
-                result.value = eval(result.value).toFixed(2);
-                break;
-            default:
-                result.value += value;
-        }
-    });
-})*/
